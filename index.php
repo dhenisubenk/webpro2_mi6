@@ -1,3 +1,6 @@
+<?php
+    require_once 'config/koneksi.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,66 +16,24 @@
     <div class="container">
         <div class="row mt-4 mb-4">
             <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-                      <a class="navbar-brand" href="#">Navbar</a>
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                          </li>
-                        </ul>
-                        <form class="d-flex">
-                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                          <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                      </div>
-                    </div>
-                  </nav>
+                <?php require_once 'inc/menu.php'?>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
-                    </ul>
-                    <div class="card-footer">
-                      Card footer
-                    </div>
-                  </div>
+            <div class="col-lg-4 col-xl-4">
+              <?php require_once 'inc/sidemenu.php'?>
             </div>
-            <div class="col-lg-8 pt-2">
-                <div class="card">
-                    <div class="card-header">
-                        Form
-                    </div>
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet fugit consequatur vel eaque illum neque blanditiis laudantium vitae atque vero facere obcaecati quis sed deserunt temporibus, in ratione! A, architecto.
-                    </div>
-                </div>
+            <div class="col-lg-8 col-xl-8 pt-2">
+                <!-- content -->
+                <?php
+                    $page = @$_GET['page']; //?page=....
+                    $dir = "content";
+                    if($page != ""){
+                        include "$dir/$page.php";
+                    }else{
+                      include "$dir/home.php";
+                    }
+                ?>  
             </div>
         </div>
     </div>
