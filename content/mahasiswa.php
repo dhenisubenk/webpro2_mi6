@@ -1,7 +1,9 @@
 <div class="card">
     <div class="card-header">
         Master Mahasiswa
-        <a href="index.php?page=mahasiswa_tambah" class="btn btn-secondary btn-sm float-end">Tambah Mahasiswa</a>
+        <?php if ($level == "Admin"): ?>
+            <a href="index.php?page=mahasiswa_tambah" class="btn btn-secondary btn-sm float-end">Tambah Mahasiswa</a>
+        <?php endif ?>
     </div>
     <div class="card-body">
         

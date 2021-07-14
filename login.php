@@ -1,20 +1,3 @@
-<?php
-    session_start();
-
-    if (empty($_SESSION['mi6_user'])) {
-        echo "<script>
-                    alert('Silahkan Login Dlu');
-                    window.location.href = 'login.php';
-        </script>";
-    }
-    else
-    {
-
-        require_once 'config/koneksi.php';
-
-        $user = $_SESSION['mi6_user'];
-        $level = $_SESSION['mi6_level'];
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <title>Pemrograman Web 2!</title>
+    <title>Login</title>
     <style>
         body{
             background: #ECE9E6;  /* fallback for old browsers */
@@ -34,24 +17,28 @@
   </head>
   <body>
     <div class="container">
-        <div class="row mt-4 mb-4">
-            <div class="col-lg-12">
-                <?php require_once 'inc/menu.php'?>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-lg-12 col-xl-12 pt-2">
-                
-                <!-- content -->
-                <?php
-                    $page = @$_GET['page']; //?page=....
-                    $dir = "content";
-                    if($page != ""){
-                        include "$dir/$page.php";
-                    }else{
-                      include "$dir/home.php";
-                    }
-                ?>  
+            <div class="col-lg-6 col-xl-6 mx-auto mt-5">
+                <div class="card">
+                    <div class="card-header">
+                        <b>Login Page</b>
+                    </div>
+                    <div class="card-body">
+                        <form action="ceklogin.php" method="POST">
+                            <div class="form-group">
+                                <label for="">Username</label>
+                                <input type="text" class="form-control" name="username" required="" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password" required="" autocomplete="off">
+                            </div>
+                            <div class="form-group mt-2">
+                                <button class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -68,4 +55,3 @@
     -->
   </body>
 </html>
-<?php } ?>
