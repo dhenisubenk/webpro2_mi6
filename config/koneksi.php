@@ -1,4 +1,6 @@
 <?php
+    require_once 'fungsi.php';
+
     $host = "localhost";
     $user = "root";
     $pass = "";

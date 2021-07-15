@@ -3,7 +3,7 @@
         <strong>Tambah User</strong>
     </div>
     <div class="card-body">
-        <form action="index.php?page=user_save" method="POST">
+        <form action="index.php?page=user_save" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Username</label>
                 <input type="text" name="username" class="form-control" required>
@@ -18,6 +18,10 @@
                     <option>Admin</option>
                     <option>User</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="">Foto</label>
+                <input type="file" name="foto" class="form-control" required>
             </div>
             <div class="form-group mt-2">
                 <button type="submit" class="btn btn-primary">Simpan</button>

@@ -20,7 +20,7 @@
                     $sql = mysqli_query($con, "SELECT * FROM user");
                     while($r = mysqli_fetch_array($sql)){
                         echo "<tr>
-                                    <td>#</td>
+                                    <td><img src='img/user/$r[foto]' class='img-thumbnail' width='100'></td>
                                     <td>$r[username]</td>
                                     <td>$r[level]</td>
                                     <td>
